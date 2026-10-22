@@ -111,3 +111,19 @@ print(Crew(agents=[agent], tasks=[task]).kickoff())
 ```
 
 8 MCP tools: `get_sample`, `check_book`, `get_free_key`, `check_invoice`, `check_quote_math`, `check_budget_variance`, `check_accounts_tieout`, `check_data_quality`. Streamable HTTP, stateless. Free key at `POST /v1/keys {"plan":"free"}`, no card, no email. Agent calls `get_free_key` in-session. Full OpenAPI at [`/openapi.json`](https://booklint.com/openapi.json).
+
+## Run it locally
+
+The free rule set also ships as a local Python package (MIT, Python 3.11+, no dependencies): per-action and daily
+spend caps, the total price cap and fees above the headline price of an offer, the trading floors, and five finance
+tools. It runs on your machine with no network, no key and no caps; rules outside the free set report
+`not_in_plan` and run on the hosted Desk plan. Download the wheel from the
+[latest release](https://github.com/booklint/booklint/releases/latest), then:
+
+```bash
+pip install booklint-0.1.0-py3-none-any.whl
+booklint check request.json      # the same body as POST https://booklint.com/v1/check
+booklint mcp                     # a local MCP server over stdio
+```
+
+MCP client config for the local server: `{"mcpServers": {"booklint": {"command": "booklint", "args": ["mcp"]}}}`
