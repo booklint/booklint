@@ -1,6 +1,6 @@
 # booklint
 
-Deterministic spending guardrails for agents. Set limits; booklint checks every action against them and returns a verdict — STOP, WARN or MATCH. Hotel bookings, purchases, subscriptions, invoices, quotes, budgets and data quality. Trading books against rulebooks too. Free key in one call, no card.
+Deterministic spending guardrails for agents. Set limits; booklint checks every action against them and answers FLAGGED, CLEAN or NOT_VERIFIED, naming each limit an action breaks. Hotel bookings, purchases, subscriptions, invoices, quotes, budgets and data quality. Trading books against rulebooks too. Free key in one call, no card.
 
 ## Try it (no key, no sign-up)
 
@@ -10,7 +10,7 @@ curl -sS -X POST https://booklint.com/v1/check \
   -d '{"sample":"spend"}'
 ```
 
-Returns **FLAGGED**: hotel 640 USD above 600 USD per-action cap (STOP), day total 1620 USD above 1500 USD daily cap (STOP), rail booking not refundable (STOP).
+Returns **FLAGGED** with 3 flags: a 640 USD hotel booking above the 600 USD per-action cap, a UTC day totalling 1620 USD against the 1500 USD daily cap, and a rail booking that is not refundable.
 
 ## Install
 
