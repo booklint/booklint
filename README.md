@@ -1,5 +1,7 @@
 # booklint
 
+> **Discontinued (1 November 2026).** Booklint has been shut down. The hosted service at booklint.com, its REST API and its MCP server are offline, so the examples below no longer work. This repository is archived and read-only. The MIT-licensed free rules package in [Release v0.1.0](https://github.com/booklint/booklint/releases/tag/v0.1.0) remains available.
+
 Deterministic spending guardrails for agents. Set limits; booklint checks every action against them and answers FLAGGED, CLEAN or NOT_VERIFIED, naming each limit an action breaks. Hotel bookings, purchases, subscriptions, invoices, quotes, budgets and data quality. Trading books against rulebooks too. Free key in one call, no card.
 
 ## Try it (no key, no sign-up)
